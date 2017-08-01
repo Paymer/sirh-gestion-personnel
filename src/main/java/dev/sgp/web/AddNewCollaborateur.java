@@ -2,6 +2,7 @@ package dev.sgp.web;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
+import java.util.ResourceBundle;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,17 +41,18 @@ public class AddNewCollaborateur extends HttpServlet {
 		String adresse = req.getParameter("Adresse");
 		String numSecSoc = req.getParameter("NumSecSoc");
 		
-		
+		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		
 		Collaborateur col = new Collaborateur(nom, prenom, dateNaissance, adresse, numSecSoc );
 		
 		col.setActif(true);
 		col.setDateHeureCreation(ZonedDateTime.now());
-		col.setEmailPro(nom+"."+prenom+"@societe.com");
+		col.setEmailPro(nom+"."+prenom+"@"+applicationBundle.getString("suffixe"));
 		col.setMatricule(prenom.substring(0, 3));
 		col.setPhoto("Github.png");
 		
 		Constantes.COLLAB_SERVICE.sauvegarderCollaborateur(col);
+		resp.sendRedirect("/sgp/collaborateurs/lister");
 		Constantes.COLLAB_SERVICE.listerCollaborateurs();
 		
 		

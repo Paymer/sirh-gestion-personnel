@@ -1,7 +1,7 @@
 package dev.sgp.web;
 
 import java.io.IOException;
-
+ 
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -26,6 +26,8 @@ public class ListerCollaborateursController extends HttpServlet {
 
 	// utilisation du service
 	List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
+	req.setAttribute("listeCollabs", collaborateurs);
+	req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 		}
 	
 	

@@ -15,6 +15,8 @@ public class Collaborateur {
 	String photo;
 	ZonedDateTime dateHeureCreation;
 	boolean actif;
+	String intitulePoste;
+	Departement departement;
 	
 	
 	
@@ -22,7 +24,7 @@ public class Collaborateur {
 		this.adresse=adresse;
 		this.nom=nom;
 		this.prenom=prenom;
-		this.adresse=adresse;
+		
 		this.numSecSoc=numSecSocial;
 	}
 	
