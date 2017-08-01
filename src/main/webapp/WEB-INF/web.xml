@@ -20,4 +20,16 @@
 <url-pattern>/collaborateurs/editer</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>AddNewCollaborateur</servlet-name>
+	<servlet-class>dev.sgp.web.AddNewCollaborateur</servlet-class>
+</servlet>
+	<servlet-mapping>
+	<servlet-name>AddNewCollaborateur</servlet-name>
+<url-pattern>/collaborateurs/add</url-pattern>
+</servlet-mapping>
+
+
+
+
 </web-app>
