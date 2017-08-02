@@ -100,7 +100,24 @@
 </fieldset>
 </form>
 
+<form class="form-horizontal" method="post">
+<fieldset>
 
+<!-- Form Name -->
+<legend>Liste de Collaborateurs</legend>
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Envoyer"></label>
+  <div class="col-md-4">
+    <a id="Liste" href='<c:url value="/collaborateurs/lister"></c:url>' class="btn btn-primary">Liste Collab</a>
+  </div>
+</div>
+
+
+</fieldset>
+</form>
 
 </body>
 </html>

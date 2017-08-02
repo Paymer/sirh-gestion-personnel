@@ -5,7 +5,9 @@ public class Departement {
 	int id;
 	String nom;
 	
-	
+	public Departement (String nom){
+		this.nom = nom;
+	}
 	
 	public int getId() {
 		return id;

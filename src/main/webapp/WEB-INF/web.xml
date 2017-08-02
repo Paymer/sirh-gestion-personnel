@@ -48,7 +48,7 @@
 </servlet-mapping>
 
 <listener>
-<listener-class>dev.sgp.InitializerSessionListener</listener-class>
+<listener-class>dev.sgp.listeners.InitializerSessionListener</listener-class>
 </listener>
 
 
