@@ -24,7 +24,6 @@ public class Collaborateur {
 		this.adresse=adresse;
 		this.nom=nom;
 		this.prenom=prenom;
-		
 		this.numSecSoc=numSecSocial;
 	}
 	
