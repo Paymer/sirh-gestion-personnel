@@ -2,6 +2,7 @@ package dev.sgp.entite;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ResourceBundle;
 
 public class Collaborateur {
 
@@ -27,7 +28,18 @@ public class Collaborateur {
 		this.numSecSoc=numSecSocial;
 	}
 	
-	
+	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial){
+		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
+		this.adresse=adresse;
+		this.nom=nom;
+		this.prenom=prenom;
+		this.numSecSoc=numSecSocial;
+		this.actif = true;
+		this.dateHeureCreation = ZonedDateTime.now();
+		this.emailPro = nom+"."+prenom+"@"+applicationBundle.getString("suffixe");
+		this.matricule = prenom.substring(0, 3);
+		this.photo = "Github.png";
+	}
 	
 	
 	

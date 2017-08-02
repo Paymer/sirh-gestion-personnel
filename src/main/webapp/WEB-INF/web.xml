@@ -47,5 +47,9 @@
 <url-pattern>/collaborateurs/statistiques</url-pattern>
 </servlet-mapping>
 
+<listener>
+<listener-class>dev.sgp.InitializerSessionListener</listener-class>
+</listener>
+
 
 </web-app>
