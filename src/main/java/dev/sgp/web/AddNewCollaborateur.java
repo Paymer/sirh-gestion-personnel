@@ -53,7 +53,8 @@ public class AddNewCollaborateur extends HttpServlet {
 		
 		Constantes.COLLAB_SERVICE.sauvegarderCollaborateur(col);
 		resp.sendRedirect("/sgp/collaborateurs/lister");
-		Constantes.COLLAB_SERVICE.listerCollaborateurs();
+		
+		           
 		
 		
 		

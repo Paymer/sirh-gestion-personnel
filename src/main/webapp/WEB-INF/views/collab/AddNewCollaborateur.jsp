@@ -1,13 +1,14 @@
-
+<%@page import="dev.sgp.entite.Collaborateur"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>SGP - App</title>
- <link rel="stylesheet" href="<c:url value='bootstrap-3.3.7-dist/css/bootstrap.css'> </c:url>">
+ <link rel="stylesheet" href="<c:url value='/bootstrap-3.3.7-dist/css/bootstrap.css'> </c:url>">
 </head>
 
 
@@ -76,8 +77,30 @@
 </div>
 
 
+
 </fieldset>
 </form>
+
+<form class="form-horizontal" method="post">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Statistiques</legend>
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Envoyer"></label>
+  <div class="col-md-4">
+    <a id="Statistiques" href='<c:url value="/collaborateurs/statistiques"></c:url>' class="btn btn-primary">Statistiques</a>
+  </div>
+</div>
+
+
+</fieldset>
+</form>
+
+
 
 </body>
 </html>
