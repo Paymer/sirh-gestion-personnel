@@ -4,7 +4,7 @@ package dev.sgp.web;
 import java.io.IOException;
 import java.time.LocalDate;
 
-
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,7 +34,7 @@ public class AddNewCollaborateur extends HttpServlet {
 		}
 	
 	
-	@Inject private CollaborateurService collabService;
+	@EJB private CollaborateurService collabService;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

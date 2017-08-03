@@ -4,24 +4,53 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "collaborateur")
 public class Collaborateur {
 
+
+	@Id
+	@Column (name = "Matricule")
 	String matricule;
+	@Column (name = "nom")
 	String nom;
+	@Column (name = "prenom")
 	String prenom;
+	@Column (name = "date_naissance")
 	LocalDate date_naissance;
+	@Column (name = "adresse")
 	String adresse;
+	@Column (name = "num_sec_social")
 	String numSecSoc;
+	@Column (name = "email")
 	String emailPro;
+	@Column (name = "photo")
 	String photo;
+	@Column (name = "date_heure_creation")
 	ZonedDateTime dateHeureCreation;
+	@Column (name = "actif")
 	boolean actif;
+	@Column (name = "intitulePoste")
 	String intitulePoste;
+
+	@ManyToOne
+	@JoinColumn(name="departement_id")
 	Departement departement;
 	
 	
 	
 	
+	public Collaborateur() {
+		
+	}
+
 	public Collaborateur (String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecSocial){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
@@ -52,7 +81,7 @@ public class Collaborateur {
 	
 
 
-	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial, String dep, String photo){
+	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;
@@ -63,7 +92,7 @@ public class Collaborateur {
 		this.emailPro = nom+"."+prenom+"@"+applicationBundle.getString("suffixe");
 		this.matricule = prenom.substring(0, 3);
 		this.photo = photo;
-		this.departement = new Departement(dep);
+		this.departement = dep;
 		
 	}
 	
