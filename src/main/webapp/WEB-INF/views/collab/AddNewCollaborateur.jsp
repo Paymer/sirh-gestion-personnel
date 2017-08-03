@@ -15,6 +15,19 @@
 
 <body>
 
+<!-- Barra de Navegacion -->
+<nav class="navbar navbar-default">
+<div class="collapse navbar-collapse" id="maNavBar">
+ <ul class="nav navbar-nav">
+<li><a href='<c:url value="/collaborateurs/lister"></c:url>'><span aria-hidden="true"></span> Liste Collab</a></li>
+<li><a href='<c:url value="/collaborateurs/statistiques"></c:url>'><span aria-hidden="true"></span> Statistiques</a></li>
+<li><a href='<c:url value="/collaborateurs/event"></c:url>'><span aria-hidden="true"></span> Event</a></li>
+</ul>
+</div>
+</nav>
+
+
+
 
 <form class="form-horizontal" method="post">
 <fieldset>
@@ -44,7 +57,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="DateNaissance">Date de Naissance</label>  
   <div class="col-md-4">
-  <input id="DateNaissance" name="DateNaissance" type="text" placeholder="Date de Naissance" class="form-control input-md">
+  <input id="DateNaissance" name="DateNaissance" type="Date" placeholder="Date de Naissance" class="form-control input-md">
     
   </div>
 </div>
@@ -84,40 +97,7 @@
 <form class="form-horizontal" method="post">
 <fieldset>
 
-<!-- Form Name -->
-<legend>Statistiques</legend>
 
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Envoyer"></label>
-  <div class="col-md-4">
-    <a id="Statistiques" href='<c:url value="/collaborateurs/statistiques"></c:url>' class="btn btn-primary">Statistiques</a>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
-
-<form class="form-horizontal" method="post">
-<fieldset>
-
-<!-- Form Name -->
-<legend>Liste de Collaborateurs</legend>
-
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Envoyer"></label>
-  <div class="col-md-4">
-    <a id="Liste" href='<c:url value="/collaborateurs/lister"></c:url>' class="btn btn-primary">Liste Collab</a>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
 
 </body>
 </html>

@@ -1,9 +1,11 @@
 package dev.sgp.web;
 
-import java.io.IOException;
-import java.time.ZonedDateTime;
-import java.util.ResourceBundle;
 
+import java.io.IOException;
+import java.time.LocalDate;
+
+
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
-import dev.sgp.util.Constantes;
+
+import dev.sgp.service.CollaborateurService;
+
 
 public class AddNewCollaborateur extends HttpServlet {
 
@@ -29,29 +33,31 @@ public class AddNewCollaborateur extends HttpServlet {
 			
 		}
 	
-				
 	
+	@Inject private CollaborateurService collabService;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String nom = req.getParameter("Nom");
 		String prenom = req.getParameter("Prenom");
-		String dateNaissance = req.getParameter("DateNaissance");
+		LocalDate dateNaissance = LocalDate.parse(req.getParameter("DateNaissance"));
 		String adresse = req.getParameter("Adresse");
 		String numSecSoc = req.getParameter("NumSecSoc");
 		
-		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
+		
 		
 		Collaborateur col = new Collaborateur(nom, prenom, dateNaissance, adresse, numSecSoc );
 		
-		col.setActif(true);
-		col.setDateHeureCreation(ZonedDateTime.now());
-		col.setEmailPro(nom+"."+prenom+"@"+applicationBundle.getString("suffixe"));
-		col.setMatricule(prenom.substring(0, 3));
-		col.setPhoto("Github.png");
 		
-		Constantes.COLLAB_SERVICE.sauvegarderCollaborateur(col);
+		
+		
+		
+		
+		collabService.sauvegarderCollaborateur(col);
+		
+		
+	
 		resp.sendRedirect("/sgp/collaborateurs/lister");
 		
 		           

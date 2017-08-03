@@ -51,5 +51,13 @@
 <listener-class>dev.sgp.listeners.InitializerSessionListener</listener-class>
 </listener>
 
+<servlet>
+	<servlet-name>Event</servlet-name>
+	<servlet-class>dev.sgp.web.ActivityEventController</servlet-class>
+</servlet>
+	<servlet-mapping>
+	<servlet-name>Event</servlet-name>
+<url-pattern>/collaborateurs/event</url-pattern>
+</servlet-mapping>
 
 </web-app>

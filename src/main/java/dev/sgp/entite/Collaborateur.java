@@ -22,11 +22,18 @@ public class Collaborateur {
 	
 	
 	
-	public Collaborateur (String nom, String prenom, String dateNaissance, String adresse, String numSecSocial){
+	public Collaborateur (String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecSocial){
+		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;
+		this.date_naissance = dateNaissance;
 		this.prenom=prenom;
 		this.numSecSoc=numSecSocial;
+		this.matricule = prenom.substring(0, 3);
+		this.dateHeureCreation = ZonedDateTime.now();
+		this.emailPro = nom+"."+prenom+"@"+applicationBundle.getString("suffixe");
+		this.actif = true;
+		this.photo = "Github.png";
 	}
 	
 	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial){
