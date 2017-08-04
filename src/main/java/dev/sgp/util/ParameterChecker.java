@@ -6,10 +6,10 @@ public class ParameterChecker {
 
 	
 	
-	public boolean checkParamEmpty (Collaborateur coll){
+	public boolean checkParamCorrect (Collaborateur coll){
 		 Boolean corr = true;
 		
-		if ( !(coll.getNom()).matches("^[a-zA-Z]$") || !(coll.getPrenom()).matches("^[a-zA-Z]$") || !(coll.getAdresse()).matches("^[a-zA-Z0-9._%+-]$")  || !(coll.getNumSecSoc()).matches("^[0-9]{15}$")){
+		if ( !(coll.getNom()).matches("^[a-zA-Z]+$") || !(coll.getPrenom()).matches("^[a-zA-Z]+$") || !(coll.getAdresse()).matches("^[a-zA-Z0-9._%+-]+$")  || !(coll.getNumSecSoc()).matches("^[0-9]{15}$")){
 			corr=false;
 		}
 	
@@ -17,7 +17,7 @@ public class ParameterChecker {
 		return corr;
 	}
 	
-	public boolean checkParamCorrect (Collaborateur coll){
+	public boolean checkParamEmpty (Collaborateur coll){
 		 Boolean corr = true;
 		
 		if ((coll.getNom()).isEmpty() || (coll.getPrenom()).isEmpty() || (coll.getAdresse()).isEmpty() || (coll.getNumSecSoc()).isEmpty() || (coll.getDate_naissance())==null){
@@ -27,7 +27,7 @@ public class ParameterChecker {
 	}
 	
 	public String getIncParamEmpty (Collaborateur coll){
-		String param = "";
+		String param = "Empty Parameters: ";
 		
 		if ((coll.getNom()).isEmpty()){
 			param = param + " Nom ";
@@ -49,15 +49,15 @@ public class ParameterChecker {
 	}
 	
 	public String getIncParam (Collaborateur coll){
-		String param = "";
+		String param = "Incorrect Parameters: ";
 		
-		if ( !(coll.getNom()).matches("^[a-zA-Z]$")){
+		if ( !(coll.getNom()).matches("^[a-zA-Z]+$")){
 			param = param + " Nom ";
 		}
-		else if (!(coll.getPrenom()).matches("^[a-zA-Z]$")){
+		else if (!(coll.getPrenom()).matches("^[a-zA-Z]+$")){
 			param = param + " Prenom ";
 		}
-		else if (!(coll.getAdresse()).matches("^[a-zA-Z0-9._%+-]$")){
+		else if (!(coll.getAdresse()).matches("^[a-zA-Z0-9._%+-]+$")){
 			param = param + " Adress ";
 		}
 		else if (!(coll.getNumSecSoc()).matches("^[0-9]{15}$")){

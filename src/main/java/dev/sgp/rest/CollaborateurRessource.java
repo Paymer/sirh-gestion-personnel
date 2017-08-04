@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.entite.CordBanc;
+import dev.sgp.exception.ParamException;
 import dev.sgp.service.CollaborateurService;
 
 
@@ -56,7 +57,11 @@ public class CollaborateurRessource {
 	@Consumes (MediaType.APPLICATION_JSON)
 	public void modifyOne (@PathParam("Matricule") String mat, Collaborateur coll){
 		
-		colSer.modifyColl(coll, mat);
+		try {
+			colSer.modifyColl(coll, mat);
+		} catch (ParamException e) {
+			
+		}
 		}
 	
 	

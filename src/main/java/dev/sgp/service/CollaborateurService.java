@@ -18,6 +18,8 @@ import dev.sgp.entite.CollabEvt;
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.entite.CordBanc;
 import dev.sgp.entite.TypeCollabEvt;
+import dev.sgp.exception.ParamException;
+import dev.sgp.util.ParameterChecker;
 
 
 
@@ -62,15 +64,34 @@ public class CollaborateurService {
 	}
 	
 	
-	public void sauvegarderCollaborateur(Collaborateur collab) {
+	
+	
+	
+	@Inject ParameterChecker parch;
+	
+	public void sauvegarderCollaborateur(Collaborateur collab) throws ParamException{
 		
-		collabEvt.fire(new CollabEvt(collab.getDateHeureCreation(), TypeCollabEvt.CREATION_COLLAB, collab.getMatricule()));
-		em.persist(collab);
-
+		if (!parch.checkParamEmpty(collab)){
+			throw new ParamException(parch.getIncParamEmpty(collab));}
+		else if (!parch.checkParamCorrect(collab)){
+			throw new ParamException(parch.getIncParam(collab));}
+		else{
+			collabEvt.fire(new CollabEvt(collab.getDateHeureCreation(), TypeCollabEvt.CREATION_COLLAB, collab.getMatricule()));
+			em.persist(collab);}
+		
 	}
 
 	
-	public void modifyColl (Collaborateur coll, String mat){
+	public void modifyColl (Collaborateur coll, String mat) throws ParamException{
+		
+		
+		if (!parch.checkParamEmpty(coll)){
+			throw new ParamException(parch.getIncParamEmpty(coll));}
+		else if (!parch.checkParamCorrect(coll)){
+			throw new ParamException(parch.getIncParam(coll));}
+		else{
+		
+		
 		
 		TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Collaborateur.class)
 										.setParameter("mat", mat);
@@ -90,7 +111,7 @@ public class CollaborateurService {
 			p.setIntitulePoste(coll.getIntitulePoste());
 	
 
-			}
+			}}
 		
 	}
 	

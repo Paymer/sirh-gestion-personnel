@@ -94,9 +94,11 @@
 </fieldset>
 </form>
 
-<form class="form-horizontal" method="post">
-<fieldset>
 
+
+     <c:if test="${!empty errorMsg}">
+      <h1> ${errorMsg} </h1>
+	  </c:if>
 
 
 </body>

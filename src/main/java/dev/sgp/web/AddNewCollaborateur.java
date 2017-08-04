@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
-
+import dev.sgp.exception.ParamException;
 import dev.sgp.service.CollaborateurService;
 
 
@@ -48,17 +48,22 @@ public class AddNewCollaborateur extends HttpServlet {
 		
 		
 		Collaborateur col = new Collaborateur(nom, prenom, dateNaissance, adresse, numSecSoc );
+
 		
-		
-		
-		
-		
-		
-		collabService.sauvegarderCollaborateur(col);
+		try {
+			collabService.sauvegarderCollaborateur(col);
+			resp.sendRedirect("/sgp/collaborateurs/lister");
+		} catch (ParamException e) {
+			req.setAttribute("errorMsg", e.getMessage());
+			RequestDispatcher dispatcher = this.getServletContext()
+			.getRequestDispatcher("/WEB-INF/views/collab/AddNewCollaborateur.jsp");
+	dispatcher.forward(req, resp);
+
+		}
 		
 		
 	
-		resp.sendRedirect("/sgp/collaborateurs/lister");
+		
 		
 		           
 		

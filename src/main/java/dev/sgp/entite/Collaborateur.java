@@ -79,23 +79,9 @@ public class Collaborateur {
 		this.photo = "https://s-media-cache-ak0.pinimg.com/236x/b2/97/90/b29790fc676170d2ee704140d04f1bfe--mobile-web-web-development.jpg";
 	}
 	
-	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial){
-		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
-		this.adresse=adresse;
-		this.nom=nom;
-		this.prenom=prenom;
-		this.numSecSoc=numSecSocial;
-		this.actif = true;
-		this.dateHeureCreation = ZonedDateTime.now();
-		this.emailPro = nom+"."+prenom+"@"+applicationBundle.getString("suffixe");
-		this.matricule = prenom.substring(0, 3);
-		this.photo = "https://s-media-cache-ak0.pinimg.com/236x/b2/97/90/b29790fc676170d2ee704140d04f1bfe--mobile-web-web-development.jpg";
-		
-	}
-	
 
 
-	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo){
+	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo, LocalDate datenaissance){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;
@@ -107,6 +93,8 @@ public class Collaborateur {
 		this.matricule = prenom.substring(0, 3);
 		this.photo = photo;
 		this.departement = dep;
+		this.date_naissance = datenaissance;
+	
 		
 	}
 	
