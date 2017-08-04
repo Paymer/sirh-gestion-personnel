@@ -15,7 +15,8 @@
 <nav class="navbar navbar-default">
 <div class="collapse navbar-collapse" id="maNavBar">
  <ul class="nav navbar-nav">
-<li><a href='<c:url value="/collaborateurs/add"></c:url>'><span aria-hidden="true"></span> Add Collab</a></li>
+ <li><a href='<c:url value="/collaborateurs/add"></c:url>'><span aria-hidden="true"></span> Add</a></li>
+<li><a href='<c:url value="/collaborateurs/lister"></c:url>'><span aria-hidden="true"></span> Liste Collab</a></li>
 <li><a href='<c:url value="/collaborateurs/statistiques"></c:url>'><span aria-hidden="true"></span> Statistiques</a></li>
 <li><a href='<c:url value="/collaborateurs/event"></c:url>'><span aria-hidden="true"></span> Event</a></li>
 </ul>
