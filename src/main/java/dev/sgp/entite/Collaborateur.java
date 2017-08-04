@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -39,6 +40,19 @@ public class Collaborateur {
 	boolean actif;
 	@Column (name = "intitulePoste")
 	String intitulePoste;
+	
+	
+	@OneToOne
+	@JoinColumn(name="CordBanc_id")
+	CordBanc coordonbanc;
+
+	public CordBanc getCoordonbanc() {
+		return coordonbanc;
+	}
+
+	public void setCoordonbanc(CordBanc coordonbanc) {
+		this.coordonbanc = coordonbanc;
+	}
 
 	@ManyToOne
 	@JoinColumn(name="departement_id")
@@ -62,7 +76,7 @@ public class Collaborateur {
 		this.dateHeureCreation = ZonedDateTime.now();
 		this.emailPro = nom+"."+prenom+"@"+applicationBundle.getString("suffixe");
 		this.actif = true;
-		this.photo = "Github.png";
+		this.photo = "https://s-media-cache-ak0.pinimg.com/236x/b2/97/90/b29790fc676170d2ee704140d04f1bfe--mobile-web-web-development.jpg";
 	}
 	
 	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial){
@@ -75,7 +89,7 @@ public class Collaborateur {
 		this.dateHeureCreation = ZonedDateTime.now();
 		this.emailPro = nom+"."+prenom+"@"+applicationBundle.getString("suffixe");
 		this.matricule = prenom.substring(0, 3);
-		this.photo = "Github.png";
+		this.photo = "https://s-media-cache-ak0.pinimg.com/236x/b2/97/90/b29790fc676170d2ee704140d04f1bfe--mobile-web-web-development.jpg";
 		
 	}
 	
