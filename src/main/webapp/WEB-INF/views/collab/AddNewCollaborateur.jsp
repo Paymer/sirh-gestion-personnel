@@ -23,6 +23,7 @@
 <li><a href='<c:url value="/collaborateurs/lister"></c:url>'><span aria-hidden="true"></span> Liste Collab</a></li>
 <li><a href='<c:url value="/collaborateurs/statistiques"></c:url>'><span aria-hidden="true"></span> Statistiques</a></li>
 <li><a href='<c:url value="/collaborateurs/event"></c:url>'><span aria-hidden="true"></span> Event</a></li>
+<li><a href='<c:url value="/collaborateurs/coordbanc"></c:url>'><span aria-hidden="true"></span> Coord.Banc.</a></li>
 </ul>
 </div>
 </nav>
