@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dev.sgp.entite.Cotisation;
+
 import dev.sgp.entite.Statistique;
 import dev.sgp.entite.VisiteWeb;
-import dev.sgp.service.CollaborateurService;
 import dev.sgp.service.VisiteWebService;
 import dev.sgp.util.Constantes;
 

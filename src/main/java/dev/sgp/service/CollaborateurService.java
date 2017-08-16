@@ -15,7 +15,7 @@ import javax.persistence.TypedQuery;
 
 
 import dev.sgp.entite.CollabEvt;
-import dev.sgp.entite.Cotisation;
+import dev.sgp.entite.Collaborateur;
 import dev.sgp.entite.CordBanc;
 import dev.sgp.entite.TypeCollabEvt;
 import dev.sgp.exception.ParamException;
@@ -32,15 +32,15 @@ public class CollaborateurService {
 	
 	@Inject private Event<CollabEvt> collabEvt;
 	
-	public List<Cotisation> listerCollaborateurs() {
+	public List<Collaborateur> listerCollaborateurs() {
 
-		TypedQuery<Cotisation> query = em.createQuery("select p from Collaborateur p", Cotisation.class);
+		TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p", Collaborateur.class);
 			return query.getResultList();
 	}
 	
-	public List<Cotisation> listerCollaborateurs(boolean actif) {
+	public List<Collaborateur> listerCollaborateurs(boolean actif) {
 
-		TypedQuery<Cotisation> query = em.createQuery("select p from Collaborateur p where p.actif=:act", Cotisation.class)
+		TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p where p.actif=:act", Collaborateur.class)
 				.setParameter("act", actif);
 
 			return query.getResultList();
@@ -48,17 +48,17 @@ public class CollaborateurService {
 	
 	
 	
-	public List<Cotisation> listerCollaborateurs(int dep) {
+	public List<Collaborateur> listerCollaborateurs(int dep) {
 
-		TypedQuery<Cotisation> query = em.createQuery("select p from Collaborateur p where p.departement=:dep", Cotisation.class)
+		TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p where p.departement=:dep", Collaborateur.class)
 				.setParameter("dep", dep);
 
 			return query.getResultList();
 	}
 	
 	
-	public Cotisation getCollaborateur (String mat){
-			TypedQuery<Cotisation> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Cotisation.class)
+	public Collaborateur getCollaborateur (String mat){
+			TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Collaborateur.class)
 				.setParameter("mat", mat);
 			return query.getSingleResult();
 	}
@@ -69,7 +69,7 @@ public class CollaborateurService {
 	
 	@Inject ParameterChecker parch;
 	
-	public void sauvegarderCollaborateur(Cotisation collab) throws ParamException{
+	public void sauvegarderCollaborateur(Collaborateur collab) throws ParamException{
 		
 		if (!parch.checkParamEmpty(collab)){
 			throw new ParamException(parch.getIncParamEmpty(collab));}
@@ -82,7 +82,7 @@ public class CollaborateurService {
 	}
 
 	
-	public void modifyColl (Cotisation coll, String mat) throws ParamException{
+	public void modifyColl (Collaborateur coll, String mat) throws ParamException{
 		
 		
 		if (!parch.checkParamEmpty(coll)){
@@ -93,9 +93,9 @@ public class CollaborateurService {
 		
 		
 		
-		TypedQuery<Cotisation> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Cotisation.class)
+		TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Collaborateur.class)
 										.setParameter("mat", mat);
-		Cotisation p = query.getSingleResult();
+		Collaborateur p = query.getSingleResult();
 		
 		if(p != null){
 			p.setMatricule(coll.getMatricule());
@@ -118,9 +118,9 @@ public class CollaborateurService {
 	
 public void modifyCordBanc (CordBanc banc, String mat){
 		
-	TypedQuery<Cotisation> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Cotisation.class)
+	TypedQuery<Collaborateur> query = em.createQuery("select p from Collaborateur p where p.matricule=:mat", Collaborateur.class)
 			.setParameter("mat", mat);
-	Cotisation p = query.getSingleResult();
+	Collaborateur p = query.getSingleResult();
 
 	if(p != null){
 

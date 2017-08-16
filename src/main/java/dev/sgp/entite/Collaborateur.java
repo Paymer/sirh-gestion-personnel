@@ -13,8 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "collaborateur")
-public class Cotisation {
+@Table(name = "Collaborateur")
+public class Collaborateur {
 
 
 	@Id
@@ -61,11 +61,11 @@ public class Cotisation {
 	
 	
 	
-	public Cotisation() {
+	public Collaborateur() {
 		
 	}
 
-	public Cotisation (String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecSocial){
+	public Collaborateur (String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecSocial){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;
@@ -81,7 +81,7 @@ public class Cotisation {
 	
 
 
-	public Cotisation (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo, LocalDate datenaissance){
+	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo, LocalDate datenaissance){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;

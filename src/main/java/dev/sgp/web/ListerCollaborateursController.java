@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dev.sgp.entite.Cotisation;
+import dev.sgp.entite.Collaborateur;
 import dev.sgp.service.CollaborateurService;
 import dev.sgp.service.DepartementService;
-import dev.sgp.util.Constantes;
+
 
 
 
@@ -34,7 +34,7 @@ public class ListerCollaborateursController extends HttpServlet {
 	ServletException, IOException {
 
 	/** utilisation du service */
-	List<Cotisation> collaborateurs = collabService.listerCollaborateurs();
+	List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
 	
 	
 	
