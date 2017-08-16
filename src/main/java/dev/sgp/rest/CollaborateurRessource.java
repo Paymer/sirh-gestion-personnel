@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Cotisation;
 import dev.sgp.entite.CordBanc;
 import dev.sgp.exception.ParamException;
 import dev.sgp.service.CollaborateurService;
@@ -32,7 +32,7 @@ public class CollaborateurRessource {
  */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Collaborateur> listAll(@QueryParam("departementId") Integer departementId){
+	public List<Cotisation> listAll(@QueryParam("departementId") Integer departementId){
 		
 		if (departementId==null){
 			return colSer.listerCollaborateurs();
@@ -47,7 +47,7 @@ public class CollaborateurRessource {
 	@Path("/{Matricule}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collaborateur listOne (@PathParam("Matricule") String mat){
+	public Cotisation listOne (@PathParam("Matricule") String mat){
 		
 		return colSer.getCollaborateur(mat);
 		
@@ -55,7 +55,7 @@ public class CollaborateurRessource {
 	@Path("/{Matricule}")
 	@PUT
 	@Consumes (MediaType.APPLICATION_JSON)
-	public void modifyOne (@PathParam("Matricule") String mat, Collaborateur coll){
+	public void modifyOne (@PathParam("Matricule") String mat, Cotisation coll){
 		
 		try {
 			colSer.modifyColl(coll, mat);

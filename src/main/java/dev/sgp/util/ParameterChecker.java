@@ -1,12 +1,12 @@
 package dev.sgp.util;
 
-import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Cotisation;
 
 public class ParameterChecker {
 
 	
 	
-	public boolean checkParamCorrect (Collaborateur coll){
+	public boolean checkParamCorrect (Cotisation coll){
 		 Boolean corr = true;
 		
 		if ( !(coll.getNom()).matches("^[a-zA-Z]+$") || !(coll.getPrenom()).matches("^[a-zA-Z]+$") || !(coll.getAdresse()).matches("^[a-zA-Z0-9._%+-]+$")  || !(coll.getNumSecSoc()).matches("^[0-9]{15}$")){
@@ -17,7 +17,7 @@ public class ParameterChecker {
 		return corr;
 	}
 	
-	public boolean checkParamEmpty (Collaborateur coll){
+	public boolean checkParamEmpty (Cotisation coll){
 		 Boolean corr = true;
 		
 		if ((coll.getNom()).isEmpty() || (coll.getPrenom()).isEmpty() || (coll.getAdresse()).isEmpty() || (coll.getNumSecSoc()).isEmpty() || (coll.getDate_naissance())==null){
@@ -26,7 +26,7 @@ public class ParameterChecker {
 		return corr;
 	}
 	
-	public String getIncParamEmpty (Collaborateur coll){
+	public String getIncParamEmpty (Cotisation coll){
 		String param = "Empty Parameters: ";
 		
 		if ((coll.getNom()).isEmpty()){
@@ -48,7 +48,7 @@ public class ParameterChecker {
 		return param;
 	}
 	
-	public String getIncParam (Collaborateur coll){
+	public String getIncParam (Cotisation coll){
 		String param = "Incorrect Parameters: ";
 		
 		if ( !(coll.getNom()).matches("^[a-zA-Z]+$")){

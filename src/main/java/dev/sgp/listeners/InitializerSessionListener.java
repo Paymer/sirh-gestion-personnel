@@ -12,7 +12,7 @@ import javax.persistence.TypedQuery;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Cotisation;
 import dev.sgp.entite.Departement;
 import dev.sgp.exception.ParamException;
 import dev.sgp.service.CollaborateurService;
@@ -46,12 +46,12 @@ public class InitializerSessionListener implements ServletContextListener {
 		
 
 		try {
-			collabService.sauvegarderCollaborateur(new Collaborateur ("Jean", "Reno", "Paris", "111111112111111", dep.get(0), "https://d3gxp3iknbs7bs.cloudfront.net/media/618/f66b289109b0b2d7a784c12a15ade56e657ddaaa.jpeg", datenas));
-			collabService.sauvegarderCollaborateur(new Collaborateur ("Marie", "Curie", "Paris", "111111113111111", dep.get(1), "https://pbs.twimg.com/profile_images/593061696039706627/uzIQ4lJF.png", datenas));
-			collabService.sauvegarderCollaborateur(new Collaborateur ("Jules", "Verne", "Nantes", "111111111111111", dep.get(2), "https://s-media-cache-ak0.pinimg.com/236x/67/44/bf/6744bfe66e1edee2e91b873ba9c159cd--the-bear-bears.jpg", datenas));
-			collabService.sauvegarderCollaborateur(new Collaborateur ("Isaac", "Newton", "Barcelona", "111111111141111", dep.get(3), "https://i0.wp.com/govfresh.com/wp-content/uploads/2013/09/governmentbureaucat.png?fit=400%2C400&ssl=1", datenas));
-			collabService.sauvegarderCollaborateur(new Collaborateur ("George", "Clooney", "New York", "111111111145111", dep.get(3), "https://cpmech.com/presentations/images/Octocat.png", datenas));
-			collabService.sauvegarderCollaborateur(new Collaborateur ("Jason", "Statham", "London", "111111112111111", dep.get(0), "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCyoZdsdYzFR3Mh0aVNT7tWVo8P_6E2LUIgTM0GD_8gpwYqq7SdA", datenas));
+			collabService.sauvegarderCollaborateur(new Cotisation ("Jean", "Reno", "Paris", "111111112111111", dep.get(0), "https://d3gxp3iknbs7bs.cloudfront.net/media/618/f66b289109b0b2d7a784c12a15ade56e657ddaaa.jpeg", datenas));
+			collabService.sauvegarderCollaborateur(new Cotisation ("Marie", "Curie", "Paris", "111111113111111", dep.get(1), "https://pbs.twimg.com/profile_images/593061696039706627/uzIQ4lJF.png", datenas));
+			collabService.sauvegarderCollaborateur(new Cotisation ("Jules", "Verne", "Nantes", "111111111111111", dep.get(2), "https://s-media-cache-ak0.pinimg.com/236x/67/44/bf/6744bfe66e1edee2e91b873ba9c159cd--the-bear-bears.jpg", datenas));
+			collabService.sauvegarderCollaborateur(new Cotisation ("Isaac", "Newton", "Barcelona", "111111111141111", dep.get(3), "https://i0.wp.com/govfresh.com/wp-content/uploads/2013/09/governmentbureaucat.png?fit=400%2C400&ssl=1", datenas));
+			collabService.sauvegarderCollaborateur(new Cotisation ("George", "Clooney", "New York", "111111111145111", dep.get(3), "https://cpmech.com/presentations/images/Octocat.png", datenas));
+			collabService.sauvegarderCollaborateur(new Cotisation ("Jason", "Statham", "London", "111111112111111", dep.get(0), "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCyoZdsdYzFR3Mh0aVNT7tWVo8P_6E2LUIgTM0GD_8gpwYqq7SdA", datenas));
 
 		} catch (ParamException e) {
 			

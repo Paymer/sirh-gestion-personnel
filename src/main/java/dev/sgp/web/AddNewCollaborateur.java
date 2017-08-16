@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Cotisation;
 import dev.sgp.exception.ParamException;
 import dev.sgp.service.CollaborateurService;
 
@@ -47,7 +47,7 @@ public class AddNewCollaborateur extends HttpServlet {
 		
 		
 		
-		Collaborateur col = new Collaborateur(nom, prenom, dateNaissance, adresse, numSecSoc );
+		Cotisation col = new Cotisation(nom, prenom, dateNaissance, adresse, numSecSoc );
 
 		
 		try {

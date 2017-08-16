@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "collaborateur")
-public class Collaborateur {
+public class Cotisation {
 
 
 	@Id
@@ -61,11 +61,11 @@ public class Collaborateur {
 	
 	
 	
-	public Collaborateur() {
+	public Cotisation() {
 		
 	}
 
-	public Collaborateur (String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecSocial){
+	public Cotisation (String nom, String prenom, LocalDate dateNaissance, String adresse, String numSecSocial){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;
@@ -81,7 +81,7 @@ public class Collaborateur {
 	
 
 
-	public Collaborateur (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo, LocalDate datenaissance){
+	public Cotisation (String nom, String prenom, String adresse, String numSecSocial, Departement dep, String photo, LocalDate datenaissance){
 		ResourceBundle applicationBundle = ResourceBundle.getBundle("application");
 		this.adresse=adresse;
 		this.nom=nom;
